@@ -1,26 +1,56 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Font stacks */
+  --font-sans:   var(--font-inter);
+  --font-mono:   var(--font-jetbrains-mono);
+  --font-serif:  var(--font-playfair);
+
+  /* Background / surface */
+  --color-hx-bg:       #F8F8F7;
+  --color-hx-surface:  #FFFFFF;
+  --color-hx-border:   #E2E2DF;
+
+  /* Text */
+  --color-hx-text:       #1A1A1A;
+  --color-hx-muted:      #6B7280;
+  --color-hx-tiny:       #9CA3AF;
+
+  /* Tier: Primary (red) */
+  --color-hx-primary:    #DC2626;
+  --color-hx-primary-lt: #FEF2F2;
+
+  /* Tier: Antagonistic (amber) */
+  --color-hx-antagonistic:    #D97706;
+  --color-hx-antagonistic-lt: #FFFBEB;
+
+  /* Tier: Integrative (emerald) */
+  --color-hx-integrative:    #059669;
+  --color-hx-integrative-lt: #ECFDF5;
+
+  /* Ecosystem CTAs */
+  --color-hx-labage:   #6366F1;
+  --color-hx-acbench:  #0EA5E9;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #F8F8F7;
+  --foreground: #1A1A1A;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

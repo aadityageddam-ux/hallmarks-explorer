@@ -1,0 +1,856 @@
+{
+  "hallmarks": [
+    {
+      "id": 1,
+      "slug": "genomic-instability",
+      "name": "Genomic Instability",
+      "number": "01",
+      "tier": "primary",
+      "tierLabel": "Primary Hallmark",
+      "shortDescription": "Accumulated DNA damage from internal and external sources that repair systems can no longer fully correct.",
+      "mechanism": "Throughout life, DNA is continuously damaged by reactive oxygen species generated during metabolism, replication errors, spontaneous hydrolysis, and environmental mutagens such as UV radiation and ionizing radiation. Multiple repair pathways—base excision repair (BER), nucleotide excision repair (NER), mismatch repair (MMR), and non-homologous end joining (NHEJ)—become less efficient with age, allowing lesions to accumulate. The resulting genomic instability drives cellular dysfunction, triggers apoptosis and senescence, and elevates cancer risk.",
+      "whyItMatters": "Genomic instability is the foundational cause of most age-related disease; cancer is essentially a disease of accumulated genomic damage. Maintaining DNA repair capacity is one of the most direct levers on healthy longevity.",
+      "biomarkers": [
+        {
+          "name": "RDW",
+          "displayName": "Red Cell Distribution Width",
+          "connection": "Elevated RDW reflects DNA replication stress in hematopoietic stem cells — a downstream marker of accumulated genomic instability in the bone marrow compartment.",
+          "labAgeField": "rdw"
+        },
+        {
+          "name": "MCV",
+          "displayName": "Mean Corpuscular Volume",
+          "connection": "MCV elevation reflects impaired erythroid cell division, partly driven by accumulated DNA replication errors that disrupt normal maturation of red blood cell precursors.",
+          "labAgeField": "mcv"
+        }
+      ],
+      "interventions": [
+        "Caloric restriction — reduces oxidative DNA damage by lowering ROS production",
+        "NAD⁺ precursors (NMN, NR) — support PARP-mediated DNA repair and SIRT1 activity",
+        "Senolytics (dasatinib + quercetin) — clear cells with unresolved DNA damage",
+        "Aerobic exercise — upregulates DNA repair enzymes and reduces oxidative stress"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "The Hallmarks of Aging",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2013,
+          "volume": "153",
+          "pages": "1194–1217",
+          "pmid": "23746838",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/23746838/",
+          "doi": "10.1016/j.cell.2013.05.039"
+        },
+        {
+          "title": "DNA damage, aging, and cancer",
+          "authors": "Hoeijmakers JH",
+          "journal": "New England Journal of Medicine",
+          "year": 2009,
+          "volume": "361",
+          "pages": "1475–1485",
+          "pmid": "19812404",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/19812404/",
+          "doi": "10.1056/NEJMra0804615"
+        }
+      ],
+      "ecosystemLinks": {
+        "labAge": {
+          "url": "http://localhost:3000",
+          "ctaText": "Compute your biological age — includes RDW and MCV which track this hallmark →",
+          "prefilledFields": ["rdw", "mcv"]
+        },
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that capture genomic instability markers →"
+        }
+      },
+      "color": "#6366F1"
+    },
+    {
+      "id": 2,
+      "slug": "telomere-attrition",
+      "name": "Telomere Attrition",
+      "number": "02",
+      "tier": "primary",
+      "tierLabel": "Primary Hallmark",
+      "shortDescription": "Progressive shortening of protective telomere caps on chromosome ends with each cell division, ultimately triggering permanent growth arrest.",
+      "mechanism": "Telomeres are repetitive DNA sequences (TTAGGG)ₙ that cap chromosome ends and prevent them from being recognized as double-strand breaks. With each replication cycle, the end-replication problem causes ~50–200 bp of telomeric DNA to be lost. When telomeres reach a critical short length, they trigger a persistent DNA damage response that drives cells into replicative senescence or apoptosis. Telomerase, the enzyme that can re-extend telomeres, is silenced in most somatic cells, making attrition inevitable in proliferating tissues.",
+      "whyItMatters": "Short telomeres predict mortality independently of chronological age across multiple cohorts. Tissues with high cell turnover — immune system, gut epithelium, skin — are most vulnerable to telomere-driven exhaustion, explaining why these systems decline earliest with age.",
+      "biomarkers": [],
+      "interventions": [
+        "Aerobic exercise — associated with longer telomeres and higher telomerase activity in multiple RCTs",
+        "Stress reduction (meditation, sleep optimization) — chronic stress accelerates telomere attrition via cortisol and oxidative stress",
+        "Mediterranean diet — linked to slower telomere shortening in large epidemiological studies",
+        "Avoid smoking — one of the strongest modifiable drivers of telomere shortening"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "The role of telomeres and telomerase in aging and cancer",
+          "authors": "Blackburn EH, Epel ES, Lin J",
+          "journal": "Science",
+          "year": 2015,
+          "volume": "350",
+          "pages": "1193–1198",
+          "pmid": "26785480",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26785480/",
+          "doi": "10.1126/science.aab3389"
+        },
+        {
+          "title": "Telomere length as a marker of biological aging: state-of-the-art, open issues, and future perspectives",
+          "authors": "Codd V, Nelson CP, Samani NJ",
+          "journal": "Ageing Research Reviews",
+          "year": 2022,
+          "volume": "82",
+          "pages": "101745",
+          "pmid": "36283615",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36283615/",
+          "doi": "10.1016/j.arr.2022.101745"
+        }
+      ],
+      "ecosystemLinks": {
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that incorporate telomere-related features →"
+        }
+      },
+      "color": "#8B5CF6"
+    },
+    {
+      "id": 3,
+      "slug": "epigenetic-alterations",
+      "name": "Epigenetic Alterations",
+      "number": "03",
+      "tier": "primary",
+      "tierLabel": "Primary Hallmark",
+      "shortDescription": "Age-related changes in DNA methylation, histone modification, and chromatin remodeling that alter gene expression without changing the DNA sequence.",
+      "mechanism": "Epigenetic marks — primarily DNA methylation at CpG sites, histone acetylation, and histone methylation — regulate gene expression and chromatin accessibility. With age, global DNA methylation decreases while specific CpG sites become hypermethylated, often silencing genes involved in development and tumor suppression. Histones lose marks associated with transcriptional activity (H3K27ac, H3K4me3) and gain repressive marks. These changes disrupt gene regulatory networks, reactivate transposable elements, and alter cell identity programs, collectively contributing to the functional decline seen in aging tissues.",
+      "whyItMatters": "Epigenetic clocks (Horvath, GrimAge, DunedinPACE) built on DNA methylation patterns predict biological age and mortality more accurately than chronological age — demonstrating that epigenetic state is mechanistically central to aging, not merely correlated with it.",
+      "biomarkers": [],
+      "interventions": [
+        "Caloric restriction and intermittent fasting — slow epigenetic aging as measured by methylation clocks",
+        "Exercise — modulates histone acetylation in muscle and brain tissue",
+        "Methyl-donor supplementation (folate, B12, choline) — support appropriate DNA methylation maintenance",
+        "Partial reprogramming (research phase) — Yamanaka factors transiently reverse epigenetic age in animal models"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "DNA methylation aging clocks: challenges and recommendations",
+          "authors": "Higgins-Chen AT, Thrush KL, Wang Y, Levine ME",
+          "journal": "Genome Biology",
+          "year": 2022,
+          "volume": "23",
+          "pages": "112",
+          "pmid": "35551665",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/35551665/",
+          "doi": "10.1186/s13059-022-02656-5"
+        },
+        {
+          "title": "An epigenetic biomarker of aging for lifespan and healthspan",
+          "authors": "Levine ME, Lu AT, Quach A, Horvath S",
+          "journal": "Aging (Albany NY)",
+          "year": 2018,
+          "volume": "10",
+          "pages": "573–591",
+          "pmid": "29676998",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29676998/",
+          "doi": "10.18632/aging.101414"
+        }
+      ],
+      "ecosystemLinks": {
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark epigenetic aging clocks on NHANES population data →"
+        }
+      },
+      "color": "#EC4899"
+    },
+    {
+      "id": 4,
+      "slug": "loss-of-proteostasis",
+      "name": "Loss of Proteostasis",
+      "number": "04",
+      "tier": "primary",
+      "tierLabel": "Primary Hallmark",
+      "shortDescription": "Declining capacity to maintain proper protein folding, quality control, and clearance, leading to toxic aggregate accumulation.",
+      "mechanism": "Proteostasis — the homeostatic control of the proteome — depends on molecular chaperones (HSP70, HSP90), the ubiquitin-proteasome system (UPS), and autophagy-lysosomal degradation. With age, all three limbs weaken: chaperone expression decreases, proteasome activity declines, and autophagic flux is impaired. The result is accumulation of misfolded and oxidized proteins that form toxic aggregates. This is the mechanism underlying Alzheimer's (amyloid-β, tau), Parkinson's (α-synuclein), and other proteinopathies that increase steeply with age.",
+      "whyItMatters": "The protein quality control system is the cell's sanitation department. When it fails, cellular toxicity from aggregates drives neurodegeneration, cataracts, and muscle dysfunction. Albumin — the most abundant circulating protein — serves as a direct readout of systemic proteostatic capacity and liver protein synthesis.",
+      "biomarkers": [
+        {
+          "name": "Albumin",
+          "displayName": "Albumin",
+          "connection": "Albumin is the liver's primary exported protein; low albumin reflects impaired hepatic protein synthesis and decreased proteostatic capacity — a direct systemic marker of this hallmark.",
+          "labAgeField": "albumin"
+        }
+      ],
+      "interventions": [
+        "Autophagy induction via fasting or caloric restriction — the strongest known activator of protein clearance",
+        "Heat stress (sauna, hot bath) — transiently upregulates heat shock protein chaperones",
+        "Rapamycin / mTOR inhibition — restores autophagic flux; the most robust life-extension intervention in model organisms",
+        "Adequate protein intake with leucine — prevents sarcopenic proteostasis collapse in elderly muscle"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "Proteostasis and aging",
+          "authors": "Hipp MS, Kasturi P, Hartl FU",
+          "journal": "Nature Reviews Molecular Cell Biology",
+          "year": 2019,
+          "volume": "20",
+          "pages": "421–435",
+          "pmid": "30733602",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/30733602/",
+          "doi": "10.1038/s41580-019-0101-y"
+        }
+      ],
+      "ecosystemLinks": {
+        "labAge": {
+          "url": "http://localhost:3000",
+          "ctaText": "Compute your biological age — includes Albumin which tracks this hallmark →",
+          "prefilledFields": ["albumin"]
+        },
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that capture proteostasis-related biomarkers →"
+        }
+      },
+      "color": "#F59E0B"
+    },
+    {
+      "id": 5,
+      "slug": "disabled-macroautophagy",
+      "name": "Disabled Macroautophagy",
+      "number": "05",
+      "tier": "primary",
+      "tierLabel": "Primary Hallmark",
+      "shortDescription": "Age-related impairment of the cellular recycling system that degrades and recycles damaged organelles, proteins, and pathogens.",
+      "mechanism": "Macroautophagy (autophagy) is the process by which cells sequester damaged cytoplasmic contents into double-membrane vesicles (autophagosomes), which then fuse with lysosomes for degradation and recycling. With age, autophagy flux declines due to reduced expression of autophagy-initiating kinases (ULK1), impaired autophagosome biogenesis, lysosomal dysfunction (reduced v-ATPase activity, elevated lysosomal pH), and accumulation of the autophagy inhibitor RUBCN. This was elevated to a primary hallmark in the 2023 López-Otín update, reflecting its causal rather than merely responsive role in aging.",
+      "whyItMatters": "Autophagy is the only mechanism that can degrade damaged mitochondria (mitophagy) and large protein aggregates that the proteasome cannot handle. Its decline creates a feed-forward loop: damaged organelles impair energy production, which further reduces autophagy, accelerating the overall aging trajectory.",
+      "biomarkers": [],
+      "interventions": [
+        "Caloric restriction and intermittent fasting — the most potent known inducers of autophagy in humans",
+        "Rapamycin / rapalogs — activate autophagy via mTORC1 inhibition; extend lifespan in every model organism tested",
+        "Spermidine supplementation — induces autophagy via histone hypoacetylation; extends lifespan in flies, worms, and mice",
+        "Urolithin A (pomegranate metabolite) — induces mitophagy specifically; improved mitochondrial function in human RCTs"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "Autophagy and aging",
+          "authors": "Rubinsztein DC, Mariño G, Kroemer G",
+          "journal": "Cell",
+          "year": 2011,
+          "volume": "146",
+          "pages": "682–695",
+          "pmid": "21884931",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/21884931/",
+          "doi": "10.1016/j.cell.2011.07.030"
+        },
+        {
+          "title": "Spermidine in health and disease",
+          "authors": "Madeo F, Eisenberg T, Pietrocola F, Kroemer G",
+          "journal": "Science",
+          "year": 2018,
+          "volume": "359",
+          "pages": "eaan2788",
+          "pmid": "29371440",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29371440/",
+          "doi": "10.1126/science.aan2788"
+        }
+      ],
+      "ecosystemLinks": {
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that capture cellular recycling decline →"
+        }
+      },
+      "color": "#10B981"
+    },
+    {
+      "id": 6,
+      "slug": "deregulated-nutrient-sensing",
+      "name": "Deregulated Nutrient Sensing",
+      "number": "06",
+      "tier": "antagonistic",
+      "tierLabel": "Antagonistic Hallmark",
+      "shortDescription": "Age-related dysregulation of nutrient-sensing pathways — insulin/IGF-1, mTOR, AMPK, and sirtuins — that shifts the organism from growth toward accelerated aging.",
+      "mechanism": "Four key nutrient-sensing axes govern cellular metabolism: the insulin/IGF-1 signaling (IIS) pathway, mechanistic target of rapamycin (mTOR), AMP-activated protein kinase (AMPK), and sirtuins (SIRT1–7). In youth, these pathways coordinate growth and anabolism; with age, chronic overnutrition drives persistent mTOR activation, IIS hyperactivity, and AMPK/sirtuin blunting. This anabolic-catabolic imbalance suppresses autophagy, reduces stress resistance, and accelerates the functional deterioration associated with aging. Reducing nutrient-sensing pathway activity — via fasting, rapamycin, or metformin — is the most reproducible intervention for extending healthy lifespan across model organisms.",
+      "whyItMatters": "This hallmark sits at the intersection of diet, metabolic health, and longevity. Fasting glucose is a direct readout of IIS pathway tone and insulin sensitivity — one of the most powerful single biomarkers of biological age and disease risk.",
+      "biomarkers": [
+        {
+          "name": "Glucose",
+          "displayName": "Fasting Glucose",
+          "connection": "Elevated fasting glucose reflects insulin resistance and IIS hyperactivation — a direct readout of deregulated nutrient sensing that drives accelerated biological aging.",
+          "labAgeField": "glucose"
+        },
+        {
+          "name": "Creatinine",
+          "displayName": "Creatinine",
+          "connection": "Very low creatinine can indicate reduced muscle mass from chronic nutrient-sensing dysregulation leading to impaired protein anabolism and muscle wasting.",
+          "labAgeField": "creatinine"
+        }
+      ],
+      "interventions": [
+        "Caloric restriction and time-restricted eating — directly reduce IIS and mTOR signaling",
+        "Metformin — activates AMPK, reduces hepatic glucose output; the most-studied longevity drug candidate in humans",
+        "Rapamycin / rapalogs — inhibit mTORC1, the most potent single longevity intervention in model organisms",
+        "Resistance training — dramatically improves insulin sensitivity and AMPK activity in skeletal muscle"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "TOR signalling in ageing and disease",
+          "authors": "Fontana L, Partridge L, Longo VD",
+          "journal": "Science",
+          "year": 2010,
+          "volume": "328",
+          "pages": "321–326",
+          "pmid": "20395504",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/20395504/",
+          "doi": "10.1126/science.1172539"
+        }
+      ],
+      "ecosystemLinks": {
+        "labAge": {
+          "url": "http://localhost:3000",
+          "ctaText": "Compute your biological age — includes Glucose and Creatinine which track this hallmark →",
+          "prefilledFields": ["glucose", "creatinine"]
+        },
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that capture metabolic aging signals →"
+        }
+      },
+      "color": "#F97316"
+    },
+    {
+      "id": 7,
+      "slug": "mitochondrial-dysfunction",
+      "name": "Mitochondrial Dysfunction",
+      "number": "07",
+      "tier": "antagonistic",
+      "tierLabel": "Antagonistic Hallmark",
+      "shortDescription": "Progressive decline in mitochondrial respiratory capacity, biogenesis, and quality control that reduces ATP production and increases oxidative damage.",
+      "mechanism": "Mitochondria generate ATP via oxidative phosphorylation but also produce reactive oxygen species (ROS) as a byproduct. With age, mitochondrial DNA (mtDNA) accumulates mutations, electron transport chain (ETC) complexes lose efficiency, the membrane potential (ΔΨm) decreases, and mitophagy (selective autophagy of damaged mitochondria) becomes impaired. This produces a vicious cycle: damaged mitochondria generate more ROS, which damage mtDNA and proteins further. The bioenergetic failure is most consequential in high-demand tissues — skeletal muscle, cardiac muscle, neurons — explaining the age-related decline in exercise capacity, cardiac function, and cognition.",
+      "whyItMatters": "Mitochondrial function is the engine of cellular metabolism. Its decline explains much of the characteristic phenotype of aging: fatigue, muscle weakness, cognitive slowing, and elevated chronic disease risk. Creatinine, a byproduct of creatine metabolism in muscle, reflects the skeletal muscle mass and function that mitochondrial health maintains.",
+      "biomarkers": [
+        {
+          "name": "Creatinine",
+          "displayName": "Creatinine",
+          "connection": "Very low creatinine reflects reduced skeletal muscle mass, which is driven in part by mitochondrial dysfunction — declining ATP supply impairs protein synthesis and muscle fiber maintenance.",
+          "labAgeField": "creatinine"
+        }
+      ],
+      "interventions": [
+        "Endurance exercise — the strongest stimulus for mitochondrial biogenesis via PGC-1α activation",
+        "Urolithin A — selectively induces mitophagy, clearing damaged mitochondria; improved muscle function in human RCTs",
+        "NAD⁺ precursors (NMN, NR) — restore NAD⁺ levels that decline with age, supporting Complex I function and sirtuin activity",
+        "Cold exposure — activates mitochondrial uncoupling in brown adipose tissue and improves overall mitochondrial efficiency"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "Mitochondria and aging: role in neurodegeneration and oxidative stress",
+          "authors": "Bratic A, Larsson NG",
+          "journal": "Journal of Clinical Investigation",
+          "year": 2013,
+          "volume": "123",
+          "pages": "951–957",
+          "pmid": "23454757",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/23454757/",
+          "doi": "10.1172/JCI64125"
+        },
+        {
+          "title": "Urolithin A induces mitophagy and prolongs lifespan in C. elegans and increases muscle function in rodents",
+          "authors": "Ryu D, Mouchiroud L, Andreux PA, Auwerx J",
+          "journal": "Nature Medicine",
+          "year": 2016,
+          "volume": "22",
+          "pages": "879–888",
+          "pmid": "27400265",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/27400265/",
+          "doi": "10.1038/nm.4132"
+        }
+      ],
+      "ecosystemLinks": {
+        "labAge": {
+          "url": "http://localhost:3000",
+          "ctaText": "Compute your biological age — includes Creatinine which tracks muscle/mitochondrial health →",
+          "prefilledFields": ["creatinine"]
+        },
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that capture bioenergetic aging signals →"
+        }
+      },
+      "color": "#EF4444"
+    },
+    {
+      "id": 8,
+      "slug": "cellular-senescence",
+      "name": "Cellular Senescence",
+      "number": "08",
+      "tier": "antagonistic",
+      "tierLabel": "Antagonistic Hallmark",
+      "shortDescription": "Permanent cell cycle arrest of damaged or stressed cells that is initially protective but becomes harmful as senescent cells accumulate with age.",
+      "mechanism": "Cellular senescence is a state of stable proliferative arrest triggered by DNA damage, telomere shortening, oncogene activation, or oxidative stress. Senescent cells remain metabolically active and secrete a pro-inflammatory mix of cytokines, chemokines, proteases, and growth factors called the senescence-associated secretory phenotype (SASP). While senescence initially serves as a tumor suppression and wound healing mechanism, the accumulation of SASP-secreting cells with age drives chronic sterile inflammation, disrupts tissue architecture, impairs stem cell function, and accelerates dysfunction in neighboring tissues via paracrine signaling.",
+      "whyItMatters": "Clearance of senescent cells in mouse models consistently extends healthspan and lifespan, restoring organ function and reducing age-related pathology. This makes cellular senescence one of the most therapeutically tractable hallmarks — senolytics are already in clinical trials for multiple age-related diseases.",
+      "biomarkers": [
+        {
+          "name": "RDW",
+          "displayName": "Red Cell Distribution Width",
+          "connection": "Elevated RDW reflects hematopoietic stem cell senescence and increased variability in red blood cell production — a marker of aging in the bone marrow niche.",
+          "labAgeField": "rdw"
+        },
+        {
+          "name": "MCV",
+          "displayName": "Mean Corpuscular Volume",
+          "connection": "Elevated MCV indicates macrocytosis from senescent or dysfunctional erythroid precursors that fail to complete normal cell division.",
+          "labAgeField": "mcv"
+        },
+        {
+          "name": "ALP",
+          "displayName": "Alkaline Phosphatase",
+          "connection": "Elevated ALP can reflect SASP-driven hepatic stress and biliary inflammation — downstream consequences of hepatic and gut senescent cell accumulation.",
+          "labAgeField": "alp"
+        }
+      ],
+      "interventions": [
+        "Senolytics (dasatinib + quercetin) — selectively kill senescent cells by disrupting their survival pathways; improved physical function in human trials",
+        "Fisetin — flavonoid senolytic with strong preclinical data; human trials ongoing",
+        "Navitoclax (ABT-263) — BCL-2/BCL-XL inhibitor that clears senescent cells; clinical trials in oncology and aging",
+        "Caloric restriction — reduces the rate of new senescent cell formation by limiting DNA damage and oxidative stress"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "Cellular senescence: a translational perspective",
+          "authors": "van Deursen JM",
+          "journal": "EBioMedicine",
+          "year": 2019,
+          "volume": "21",
+          "pages": "21–28",
+          "pmid": "30711528",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/30711528/",
+          "doi": "10.1016/j.ebiom.2019.01.042"
+        },
+        {
+          "title": "Senolytics improve physical function and increase lifespan in old age",
+          "authors": "Xu M, Pirtskhalava T, Fairbanks JN, Kirkland JL",
+          "journal": "Nature Medicine",
+          "year": 2018,
+          "volume": "24",
+          "pages": "1246–1256",
+          "pmid": "29988130",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29988130/",
+          "doi": "10.1038/s41591-018-0092-9"
+        }
+      ],
+      "ecosystemLinks": {
+        "labAge": {
+          "url": "http://localhost:3000",
+          "ctaText": "Compute your biological age — includes RDW, MCV, and ALP which track this hallmark →",
+          "prefilledFields": ["rdw", "mcv", "alp"]
+        },
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that capture senescence-related biomarkers →"
+        }
+      },
+      "color": "#F43F5E"
+    },
+    {
+      "id": 9,
+      "slug": "stem-cell-exhaustion",
+      "name": "Stem Cell Exhaustion",
+      "number": "09",
+      "tier": "integrative",
+      "tierLabel": "Integrative Hallmark",
+      "shortDescription": "Decline in the number and regenerative capacity of adult stem cell pools, impairing tissue maintenance and repair across organ systems.",
+      "mechanism": "Adult stem cells maintain tissue homeostasis by replenishing differentiated cells lost to normal turnover and injury. With age, stem cell pools in the bone marrow (hematopoietic stem cells), intestinal crypts (Lgr5⁺ stem cells), muscle (satellite cells), and brain (neural stem cells) progressively decline in number and function. Contributing mechanisms include telomere shortening, epigenetic drift, accumulation of DNA damage, loss of niche support signals, and increased quiescence driven by p16^INK4a and p21^CIP1. The net result is impaired regeneration, slower wound healing, weakened immunity, and loss of tissue architecture.",
+      "whyItMatters": "Stem cell exhaustion is the direct cellular mechanism underlying tissue aging — it explains why older bodies heal more slowly, why muscle mass declines, why the immune system weakens, and why the regenerative capacity lost with age is so difficult to restore.",
+      "biomarkers": [
+        {
+          "name": "Lymphocyte %",
+          "displayName": "Lymphocyte Percentage",
+          "connection": "Declining lymphocyte percentage reflects hematopoietic stem cell exhaustion — reduced output of adaptive immune cells from an aging bone marrow niche.",
+          "labAgeField": "lymphocytePct"
+        },
+        {
+          "name": "MCV",
+          "displayName": "Mean Corpuscular Volume",
+          "connection": "Elevated MCV can result from exhausted or dysregulated hematopoietic stem cells producing abnormally large red blood cell precursors.",
+          "labAgeField": "mcv"
+        },
+        {
+          "name": "WBC",
+          "displayName": "White Blood Cell Count",
+          "connection": "Age-related shifts in WBC composition — particularly myeloid skewing — reflect hematopoietic stem cell exhaustion and altered differentiation bias with age.",
+          "labAgeField": "wbc"
+        }
+      ],
+      "interventions": [
+        "Resistance and endurance exercise — activates muscle satellite cells and maintains hematopoietic stem cell function",
+        "Rapamycin — restores hematopoietic stem cell self-renewal capacity in aged mice",
+        "Senolytics — clearing senescent cells in the stem cell niche restores stem cell function by improving the local microenvironment",
+        "GDF11 supplementation (research) — circulating factor that declines with age; restores neural and muscle stem cell activity in animal models"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "Ageing and the pathobiology of myeloid malignancies",
+          "authors": "Steensma DP, Bejar R, Jaiswal S, Ebert BL",
+          "journal": "Nature Reviews Cancer",
+          "year": 2015,
+          "volume": "15",
+          "pages": "469–480",
+          "pmid": "26105538",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26105538/",
+          "doi": "10.1038/nrc3986"
+        }
+      ],
+      "ecosystemLinks": {
+        "labAge": {
+          "url": "http://localhost:3000",
+          "ctaText": "Compute your biological age — includes Lymphocyte %, MCV, and WBC which track this hallmark →",
+          "prefilledFields": ["lymphocytePct", "mcv", "wbc"]
+        },
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that capture immune aging and hematopoietic decline →"
+        }
+      },
+      "color": "#14B8A6"
+    },
+    {
+      "id": 10,
+      "slug": "altered-intercellular-communication",
+      "name": "Altered Intercellular Communication",
+      "number": "10",
+      "tier": "integrative",
+      "tierLabel": "Integrative Hallmark",
+      "shortDescription": "Age-related deterioration of the signaling networks between cells — including endocrine, paracrine, and neural signals — that coordinate tissue and organ function.",
+      "mechanism": "Cells communicate through hormones, growth factors, extracellular vesicles, and direct cell-to-cell contacts. With age, the composition of the circulating proteome shifts profoundly: levels of growth hormone, IGF-1, sex hormones, and other anabolic signals decline, while inflammatory cytokines and SASP factors from senescent cells increase. This creates a systemic pro-aging milieu that propagates cellular dysfunction from senescent cells to otherwise healthy neighbors. Parabiosis experiments — connecting young and old mice — demonstrated that circulating factors in young blood can partially rejuvenate aged tissues, confirming the causal importance of systemic intercellular signaling.",
+      "whyItMatters": "Intercellular communication is the coordination layer of multicellular life. Its deterioration means that individual cells, even if locally healthy, receive corrupted instructions from the systemic environment — explaining how systemic aging propagates across the whole organism.",
+      "biomarkers": [
+        {
+          "name": "Albumin",
+          "displayName": "Albumin",
+          "connection": "Albumin participates in intercellular communication as a carrier protein for hormones, fatty acids, and signaling molecules; declining albumin disrupts the transport of these systemic signals.",
+          "labAgeField": "albumin"
+        },
+        {
+          "name": "Lymphocyte %",
+          "displayName": "Lymphocyte Percentage",
+          "connection": "Lymphocyte percentage reflects the immune system's capacity for intercellular communication via cytokine signaling — declining lymphocytes impair adaptive immune coordination across the body.",
+          "labAgeField": "lymphocytePct"
+        }
+      ],
+      "interventions": [
+        "Exercise — triggers beneficial systemic signaling via myokines (IL-6, irisin, BDNF) that communicate health signals from muscle to brain, liver, and adipose tissue",
+        "Senolytics — removing SASP-secreting cells reduces the pro-inflammatory circulating signal that corrupts intercellular communication",
+        "Plasma factors research — identifying and supplementing beneficial young plasma factors (GDF11, TIMP2) is an active therapeutic area",
+        "Reduce visceral adiposity — adipose-derived pro-inflammatory adipokines are a major source of corrupted circulating signals"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "Young blood reverses age-related impairments in cognitive function and synaptic plasticity in mice",
+          "authors": "Villeda SA, Plambeck KE, Bhanu M, Wyss-Coray T",
+          "journal": "Nature Medicine",
+          "year": 2014,
+          "volume": "20",
+          "pages": "659–663",
+          "pmid": "24793238",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/24793238/",
+          "doi": "10.1038/nm.3569"
+        }
+      ],
+      "ecosystemLinks": {
+        "labAge": {
+          "url": "http://localhost:3000",
+          "ctaText": "Compute your biological age — includes Albumin and Lymphocyte % which track this hallmark →",
+          "prefilledFields": ["albumin", "lymphocytePct"]
+        },
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks trained on systemic aging biomarkers →"
+        }
+      },
+      "color": "#0EA5E9"
+    },
+    {
+      "id": 11,
+      "slug": "chronic-inflammation",
+      "name": "Chronic Inflammation",
+      "number": "11",
+      "tier": "integrative",
+      "tierLabel": "Integrative Hallmark",
+      "shortDescription": "Low-grade, sterile, systemic inflammation that persists without acute infection — termed \"inflammaging\" — that drives the majority of age-related chronic disease.",
+      "mechanism": "Inflammaging arises from multiple converging sources: SASP secretion by senescent cells, activation of innate immune pattern recognition receptors (TLRs, cGAS-STING) by cytoplasmic DNA from damaged or dying cells, translocation of microbial products across the aging gut barrier, accumulation of advanced glycation end products (AGEs), and loss of immunoregulatory T cell function. The resulting persistent elevation of IL-6, TNF-α, IL-1β, and CRP creates a systemic inflammatory milieu that impairs insulin signaling, drives neurodegeneration, promotes cardiovascular disease, and accelerates cancer progression. This was elevated to an integrative hallmark in 2023, reflecting its central role in virtually all age-related diseases.",
+      "whyItMatters": "Inflammation is the final common pathway through which most of the primary and antagonistic hallmarks damage tissues systemically. CRP and WBC are the two most accessible and validated blood biomarkers of this systemic inflammatory state.",
+      "biomarkers": [
+        {
+          "name": "CRP",
+          "displayName": "C-Reactive Protein",
+          "connection": "CRP is the canonical biomarker of systemic inflammation — elevated CRP directly reflects the inflammaging process and predicts all-cause mortality independently of other risk factors.",
+          "labAgeField": "crp"
+        },
+        {
+          "name": "WBC",
+          "displayName": "White Blood Cell Count",
+          "connection": "Elevated WBC reflects chronic low-grade immune activation characteristic of inflammaging — an overactivated innate immune system continuously responding to senescent cell signals and microbial translocation.",
+          "labAgeField": "wbc"
+        }
+      ],
+      "interventions": [
+        "Anti-inflammatory diet (Mediterranean, olive oil, omega-3 rich) — reduces CRP, IL-6, and TNF-α across multiple RCTs",
+        "Senolytics — removing SASP-secreting senescent cells reduces the primary source of chronic inflammatory signals",
+        "Aerobic exercise — potently lowers systemic inflammation via anti-inflammatory myokine secretion and improved immune regulation",
+        "Adequate sleep — chronic sleep restriction strongly elevates IL-6 and CRP; restoring sleep quality is one of the fastest inflammation-reduction interventions"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "Inflammaging: a new immune-metabolic viewpoint for age-related diseases",
+          "authors": "Franceschi C, Garagnani P, Parini P, Giuliani C, Santoro A",
+          "journal": "Nature Reviews Endocrinology",
+          "year": 2018,
+          "volume": "14",
+          "pages": "576–590",
+          "pmid": "30046148",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/30046148/",
+          "doi": "10.1038/s41574-018-0059-4"
+        },
+        {
+          "title": "Serum CRP, IL-6, and TNFα predict mortality in aging cohort",
+          "authors": "Ridker PM, Cushman M, Stampfer MJ, Tracy RP, Hennekens CH",
+          "journal": "New England Journal of Medicine",
+          "year": 1997,
+          "volume": "336",
+          "pages": "973–979",
+          "pmid": "9077376",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/9077376/",
+          "doi": "10.1056/NEJM199704033361401"
+        }
+      ],
+      "ecosystemLinks": {
+        "labAge": {
+          "url": "http://localhost:3000",
+          "ctaText": "Compute your biological age — includes CRP and WBC which directly track inflammaging →",
+          "prefilledFields": ["crp", "wbc"]
+        },
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that incorporate inflammatory biomarkers →"
+        }
+      },
+      "color": "#DC2626"
+    },
+    {
+      "id": 12,
+      "slug": "dysbiosis",
+      "name": "Dysbiosis",
+      "number": "12",
+      "tier": "integrative",
+      "tierLabel": "Integrative Hallmark",
+      "shortDescription": "Age-related loss of beneficial gut microbial diversity and imbalance toward pro-inflammatory microbial communities that impair systemic health.",
+      "mechanism": "The gut microbiome is a dynamic ecosystem of ~100 trillion microorganisms that perform essential functions: synthesizing short-chain fatty acids (SCFAs, particularly butyrate) that nourish colonocytes and regulate immune responses, producing vitamins (K2, B12), metabolizing bile acids, and maintaining gut barrier integrity. With age, microbiome diversity declines, keystone genera such as Bifidobacterium and Faecalibacterium prausnitzii decrease, and pro-inflammatory species increase. Gut barrier permeability increases (\"leaky gut\"), allowing microbial products (LPS, flagellin) to enter the bloodstream and activate systemic inflammatory signaling — directly amplifying inflammaging. This was a new hallmark in the 2023 López-Otín framework.",
+      "whyItMatters": "The gut microbiome is now understood as a systemic organ that modulates immunity, metabolism, brain function, and drug metabolism. Its deterioration with age is one of the primary amplifiers of inflammaging and metabolic decline — and, unlike most aging processes, it is highly modifiable through diet and lifestyle.",
+      "biomarkers": [
+        {
+          "name": "ALP",
+          "displayName": "Alkaline Phosphatase",
+          "connection": "Intestinal ALP plays a key role in gut barrier function and detoxification of LPS; elevated serum ALP can reflect gut barrier disruption and biliary inflammation driven by microbial dysbiosis.",
+          "labAgeField": "alp"
+        }
+      ],
+      "interventions": [
+        "High-fiber diet and diverse plant foods — the most potent dietary intervention for increasing microbiome diversity and butyrate-producing bacteria",
+        "Fermented foods (yogurt, kefir, kimchi, sauerkraut) — shown in a Stanford RCT to increase microbiome diversity and reduce inflammatory markers",
+        "Prebiotic supplementation (inulin, FOS) — selectively feeds Bifidobacterium and Lactobacillus species",
+        "Avoid unnecessary antibiotics — single antibiotic courses cause dramatic microbiome disruption that can persist for months to years"
+      ],
+      "citations": [
+        {
+          "title": "Hallmarks of Aging: An Expanding Universe",
+          "authors": "López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G",
+          "journal": "Cell",
+          "year": 2023,
+          "volume": "186",
+          "pages": "243–278",
+          "pmid": "36599349",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36599349/",
+          "doi": "10.1016/j.cell.2022.11.001"
+        },
+        {
+          "title": "Gut microbiome and aging: physiological and mechanistic insights",
+          "authors": "Badal VD, Vaccariello ED, Murray ER, Knight R",
+          "journal": "Nutrients",
+          "year": 2020,
+          "volume": "12",
+          "pages": "3833",
+          "pmid": "33348586",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/33348586/",
+          "doi": "10.3390/nu12123833"
+        },
+        {
+          "title": "Gut-microbiota-targeted diets modulate human immune status",
+          "authors": "Wastyk HC, Fragiadakis GK, Perelman D, Sonnenburg JL",
+          "journal": "Cell",
+          "year": 2021,
+          "volume": "184",
+          "pages": "4137–4153",
+          "pmid": "34256014",
+          "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/34256014/",
+          "doi": "10.1016/j.cell.2021.06.019"
+        }
+      ],
+      "ecosystemLinks": {
+        "labAge": {
+          "url": "http://localhost:3000",
+          "ctaText": "Compute your biological age — includes ALP which tracks gut barrier health →",
+          "prefilledFields": ["alp"]
+        },
+        "agingClockBench": {
+          "url": "https://github.com/aadityageddam-ux/aging_clock_bench",
+          "ctaText": "Benchmark aging clocks that incorporate microbiome-related metabolic markers →"
+        }
+      },
+      "color": "#22C55E"
+    }
+  ],
+  "tiers": {
+    "primary": {
+      "label": "Primary Hallmarks",
+      "description": "Root causes of molecular and cellular damage that initiate aging.",
+      "color": "#DC2626",
+      "lightColor": "#FEF2F2"
+    },
+    "antagonistic": {
+      "label": "Antagonistic Hallmarks",
+      "description": "Initially protective responses to damage that become harmful as they persist.",
+      "color": "#D97706",
+      "lightColor": "#FFFBEB"
+    },
+    "integrative": {
+      "label": "Integrative Hallmarks",
+      "description": "Downstream consequences that collectively produce the aging phenotype.",
+      "color": "#059669",
+      "lightColor": "#ECFDF5"
+    }
+  }
+}
