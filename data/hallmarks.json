@@ -67,7 +67,7 @@
       ],
       "ecosystemLinks": {
         "labAge": {
-          "url": "https://labage.app",
+          "url": "https://labage-orcvw1e0p-aadityageddam-3352s-projects.vercel.app",
           "ctaText": "Compute your biological age — includes RDW and MCV which track this hallmark →",
           "prefilledFields": ["rdw", "mcv"]
         },
@@ -248,7 +248,7 @@
       ],
       "ecosystemLinks": {
         "labAge": {
-          "url": "https://labage.app",
+          "url": "https://labage-orcvw1e0p-aadityageddam-3352s-projects.vercel.app",
           "ctaText": "Compute your biological age — includes Albumin which tracks this hallmark →",
           "prefilledFields": ["albumin"]
         },
@@ -375,7 +375,7 @@
       ],
       "ecosystemLinks": {
         "labAge": {
-          "url": "https://labage.app",
+          "url": "https://labage-orcvw1e0p-aadityageddam-3352s-projects.vercel.app",
           "ctaText": "Compute your biological age — includes Glucose and Creatinine which track this hallmark →",
           "prefilledFields": ["glucose", "creatinine"]
         },
@@ -447,7 +447,7 @@
       ],
       "ecosystemLinks": {
         "labAge": {
-          "url": "https://labage.app",
+          "url": "https://labage-orcvw1e0p-aadityageddam-3352s-projects.vercel.app",
           "ctaText": "Compute your biological age — includes Creatinine which tracks muscle/mitochondrial health →",
           "prefilledFields": ["creatinine"]
         },
@@ -531,7 +531,7 @@
       ],
       "ecosystemLinks": {
         "labAge": {
-          "url": "https://labage.app",
+          "url": "https://labage-orcvw1e0p-aadityageddam-3352s-projects.vercel.app",
           "ctaText": "Compute your biological age — includes RDW, MCV, and ALP which track this hallmark →",
           "prefilledFields": ["rdw", "mcv", "alp"]
         },
@@ -604,7 +604,7 @@
       ],
       "ecosystemLinks": {
         "labAge": {
-          "url": "https://labage.app",
+          "url": "https://labage-orcvw1e0p-aadityageddam-3352s-projects.vercel.app",
           "ctaText": "Compute your biological age — includes Lymphocyte %, MCV, and WBC which track this hallmark →",
           "prefilledFields": ["lymphocytePct", "mcv", "wbc"]
         },
@@ -671,7 +671,7 @@
       ],
       "ecosystemLinks": {
         "labAge": {
-          "url": "https://labage.app",
+          "url": "https://labage-orcvw1e0p-aadityageddam-3352s-projects.vercel.app",
           "ctaText": "Compute your biological age — includes Albumin and Lymphocyte % which track this hallmark →",
           "prefilledFields": ["albumin", "lymphocytePct"]
         },
@@ -749,7 +749,7 @@
       ],
       "ecosystemLinks": {
         "labAge": {
-          "url": "https://labage.app",
+          "url": "https://labage-orcvw1e0p-aadityageddam-3352s-projects.vercel.app",
           "ctaText": "Compute your biological age — includes CRP and WBC which directly track inflammaging →",
           "prefilledFields": ["crp", "wbc"]
         },
@@ -821,7 +821,7 @@
       ],
       "ecosystemLinks": {
         "labAge": {
-          "url": "https://labage.app",
+          "url": "https://labage-orcvw1e0p-aadityageddam-3352s-projects.vercel.app",
           "ctaText": "Compute your biological age — includes ALP which tracks gut barrier health →",
           "prefilledFields": ["alp"]
         },
