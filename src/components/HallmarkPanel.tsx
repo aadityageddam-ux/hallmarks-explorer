@@ -1,250 +1,214 @@
-'use client'
+"use client";
+import { useEffect, useRef } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import type { Hallmark } from "@/types/hallmark";
+import { CitationItem } from "./CitationItem";
 
-import { motion } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
-import type { Hallmark } from '@/types/hallmark'
-import { CitationItem } from './CitationItem'
-import { BiologicalAgeLink } from './BiologicalAgeLink'
-import { BenchmarkLink } from './BenchmarkLink'
-
-const TIER_COLORS: Record<string, { badge: string; badgeBg: string }> = {
-  primary: { badge: '#DC2626', badgeBg: '#FEF2F2' },
-  antagonistic: { badge: '#D97706', badgeBg: '#FFFBEB' },
-  integrative: { badge: '#059669', badgeBg: '#ECFDF5' },
+function SourceLinks({ ids }: { ids: string[] }) {
+  return (
+    <span className="mt-2 flex flex-wrap gap-3 text-sm">
+      {ids.map((id) => (
+        <a
+          key={id}
+          href={"https://pubmed.ncbi.nlm.nih.gov/" + id + "/"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-indigo-800 underline underline-offset-2"
+        >
+          Source: PMID {id}
+        </a>
+      ))}
+    </span>
+  );
 }
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 8 },
-  show: { opacity: 1, y: 0 },
+interface Props {
+  hallmark: Hallmark;
+  onClose: () => void;
+  onNavigate: (direction: "prev" | "next") => void;
+  prevHallmark: Hallmark | null;
+  nextHallmark: Hallmark | null;
 }
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.06, delayChildren: 0.15 },
-  },
-}
-
-interface HallmarkPanelProps {
-  hallmark: Hallmark | null
-  onClose: () => void
-  onNavigate: (direction: 'prev' | 'next') => void
-  prevHallmark: Hallmark | null
-  nextHallmark: Hallmark | null
-}
-
 export function HallmarkPanel({
   hallmark,
   onClose,
   onNavigate,
   prevHallmark,
   nextHallmark,
-}: HallmarkPanelProps) {
-  if (!hallmark) return null
-
-  const tier = TIER_COLORS[hallmark.tier]
-  const hasLabAge = !!hallmark.ecosystemLinks.labAge
-  const hasACBench = !!hallmark.ecosystemLinks.agingClockBench
-
+}: Props) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const title = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    const element = dialog.current!;
+    const opener =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+    const overflow = document.body.style.overflow;
+    element.showModal();
+    document.body.style.overflow = "hidden";
+    return () => {
+      element.close();
+      document.body.style.overflow = overflow;
+      opener?.focus();
+    };
+  }, []);
+  useEffect(() => {
+    title.current?.focus();
+    dialog.current?.querySelector("[data-panel-scroll]")?.scrollTo(0, 0);
+  }, [hallmark.id]);
   return (
-    <>
-      {/* Backdrop */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        className="fixed inset-0 z-30 bg-black/40"
-        onClick={onClose}
-        aria-hidden="true"
-      />
-
-      {/* Panel */}
-      <motion.aside
-        key={hallmark.id}
-        initial={{ x: '100%' }}
-        animate={{ x: 0 }}
-        exit={{ x: '100%' }}
-        transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-        className="fixed right-0 top-0 bottom-0 z-40 flex flex-col bg-white shadow-2xl overflow-hidden
-                   w-full sm:w-[90vw] md:w-[65vw] lg:w-[55vw] max-w-[760px]"
-        aria-label={`${hallmark.name} detail panel`}
-        role="complementary"
-      >
-        {/* Header */}
-        <div className="shrink-0 border-b border-[#E2E2DF] px-8 pt-8 pb-6">
+    <dialog
+      ref={dialog}
+      aria-labelledby="hallmark-title"
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+      onKeyDown={(event) => {
+        if (event.key !== "Tab") return;
+        const focusable = Array.from(
+          event.currentTarget.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), [tabindex="0"]',
+          ),
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (
+          event.shiftKey &&
+          (document.activeElement === first ||
+            document.activeElement === title.current)
+        ) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+      className="fixed inset-0 ml-auto mr-0 my-0 h-dvh max-h-dvh w-full max-w-[760px] p-0 border-0 bg-transparent text-[#1A1A1A] backdrop:bg-black/40"
+    >
+      <div className="flex h-full flex-col bg-white shadow-2xl">
+        <header className="shrink-0 border-b border-[#E2E2DF] p-5 sm:px-8">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="font-mono text-[80px] leading-none font-normal text-[#EBEBEB] select-none -mb-2">
-                {hallmark.number}
+              <p className="text-sm text-[#596170]">
+                {hallmark.number} / 12 · {hallmark.tierLabel}
               </p>
               <h2
-                className="font-serif text-3xl font-bold leading-tight text-[#1A1A1A] mt-1"
+                id="hallmark-title"
                 data-testid="panel-title"
+                ref={title}
+                tabIndex={-1}
+                className="mt-2 font-serif text-3xl font-bold focus:outline-none"
               >
                 {hallmark.name}
               </h2>
-              <span
-                className="mt-2 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide"
-                style={{ color: tier.badge, backgroundColor: tier.badgeBg }}
-              >
-                {hallmark.tierLabel}
-              </span>
             </div>
-
             <button
               onClick={onClose}
               aria-label="Close panel"
-              className="shrink-0 mt-1 rounded-lg p-2 text-[#9CA3AF] hover:text-[#1A1A1A] hover:bg-[#F8F8F7] transition-colors"
+              className="rounded-lg p-3 hover:bg-gray-100 focus-visible:outline-2"
             >
-              <X size={20} />
+              <X size={22} />
             </button>
           </div>
+        </header>
+        <div
+          data-panel-scroll
+          className="flex-1 overflow-y-auto p-5 sm:p-8 space-y-8"
+        >
+          <section>
+            <h3 className="font-semibold mb-2">What it is</h3>
+            <p className="text-base leading-relaxed">{hallmark.mechanism}</p>
+            <SourceLinks ids={hallmark.mechanismSourceIds} />
+          </section>
+          <section>
+            <h3 className="font-semibold mb-3">What researchers measured</h3>
+            {hallmark.measurements.map((m) => (
+              <article
+                key={m.name}
+                className="rounded-lg border border-[#E2E2DF] bg-[#F8F8F7] p-4"
+              >
+                <p className="text-sm font-medium text-indigo-800">{m.kind}</p>
+                <h4 className="font-semibold mt-1">{m.name}</h4>
+                <p className="mt-2 leading-relaxed">{m.description}</p>
+                <p className="mt-2 text-[#596170] leading-relaxed">
+                  {m.limitation}
+                </p>
+                <SourceLinks ids={m.sourceIds} />
+              </article>
+            ))}
+          </section>
+          <section>
+            <h3 className="font-semibold mb-3">Selected research evidence</h3>
+            <p className="text-sm text-[#596170] mb-4">
+              Examples of what has been tested, not treatment recommendations or
+              a complete literature review.
+            </p>
+            <div className="space-y-4">
+              {hallmark.studies.map((s) => (
+                <article
+                  key={s.title}
+                  className="rounded-lg border border-[#E2E2DF] p-4"
+                >
+                  <p className="text-sm font-medium text-indigo-800">
+                    {s.evidence}
+                  </p>
+                  <h4 className="font-semibold mt-1">{s.title}</h4>
+                  <p className="text-sm text-[#596170] mt-1">{s.population}</p>
+                  <p className="mt-3 leading-relaxed">{s.finding}</p>
+                  <p className="mt-3 leading-relaxed text-[#596170]">
+                    <strong className="font-medium text-[#1A1A1A]">
+                      What this does not establish:{" "}
+                    </strong>
+                    {s.limitation}
+                  </p>
+                  <SourceLinks ids={s.sourceIds} />
+                </article>
+              ))}
+            </div>
+          </section>
+          <section>
+            <h3 className="font-semibold mb-2">Open question</h3>
+            <p className="leading-relaxed text-[#596170]">
+              How far does this evidence generalize beyond the specific tissue,
+              population and outcome studied?
+            </p>
+            <p className="mt-2 leading-relaxed">{hallmark.uncertainty}</p>
+          </section>
+          <section>
+            <h3 className="font-semibold mb-3">Sources</h3>
+            <div className="space-y-4">
+              {hallmark.citations.map((c) => (
+                <CitationItem key={c.pmid} citation={c} />
+              ))}
+            </div>
+          </section>
         </div>
-
-        {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto px-8 py-6">
-          <motion.div
-            key={hallmark.id}
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            className="space-y-8"
-          >
-            {/* What is it? */}
-            <motion.section variants={sectionVariants}>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">
-                What is it?
-              </h3>
-              <p className="text-[15px] text-[#1A1A1A] leading-relaxed">
-                {hallmark.mechanism}
-              </p>
-            </motion.section>
-
-            {/* Why it matters */}
-            <motion.section variants={sectionVariants}>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">
-                Why it matters
-              </h3>
-              <p className="text-[15px] text-[#6B7280] leading-relaxed">
-                {hallmark.whyItMatters}
-              </p>
-            </motion.section>
-
-            {/* Biomarkers */}
-            {hallmark.biomarkers.length > 0 && (
-              <motion.section variants={sectionVariants}>
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">
-                  Biomarkers tracked
-                </h3>
-                <div className="space-y-3">
-                  {hallmark.biomarkers.map(b => (
-                    <div
-                      key={b.name}
-                      className="rounded-lg bg-[#F8F8F7] border border-[#E2E2DF] p-3"
-                    >
-                      <p className="text-sm font-semibold text-[#1A1A1A] mb-0.5">
-                        {b.displayName}{' '}
-                        <span className="font-mono text-xs text-[#9CA3AF] font-normal">
-                          ({b.name})
-                        </span>
-                      </p>
-                      <p className="text-sm text-[#6B7280] leading-snug">
-                        {b.connection}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </motion.section>
-            )}
-
-            {/* Interventions */}
-            <motion.section variants={sectionVariants}>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">
-                What you can do
-              </h3>
-              <ul className="space-y-2">
-                {hallmark.interventions.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-[#1A1A1A]">
-                    <span className="shrink-0 mt-1.5 h-1.5 w-1.5 rounded-full bg-[#D4D4D4]" />
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.section>
-
-            {/* Citations */}
-            <motion.section variants={sectionVariants}>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">
-                Key papers
-              </h3>
-              <div className="space-y-4">
-                {hallmark.citations.map(c => (
-                  <CitationItem key={c.pmid} citation={c} />
-                ))}
-              </div>
-            </motion.section>
-
-            {/* Ecosystem links */}
-            {(hasLabAge || hasACBench) && (
-              <motion.section variants={sectionVariants}>
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">
-                  Explore in your data
-                </h3>
-                <div className="space-y-2">
-                  {hasLabAge && (
-                    <BiologicalAgeLink
-                      link={hallmark.ecosystemLinks.labAge!}
-                      biomarkers={hallmark.biomarkers}
-                    />
-                  )}
-                  {hasACBench && (
-                    <BenchmarkLink link={hallmark.ecosystemLinks.agingClockBench!} />
-                  )}
-                </div>
-              </motion.section>
-            )}
-          </motion.div>
-        </div>
-
-        {/* Prev / Next navigation */}
-        <div className="shrink-0 border-t border-[#E2E2DF] px-8 py-4 flex items-center justify-between gap-4">
+        <footer className="shrink-0 border-t border-[#E2E2DF] p-4 flex justify-between gap-3">
           <button
-            onClick={() => onNavigate('prev')}
+            onClick={() => onNavigate("prev")}
             disabled={!prevHallmark}
-            aria-label={prevHallmark ? `Previous: ${prevHallmark.name}` : 'No previous hallmark'}
-            className="flex items-center gap-2 text-sm text-[#6B7280] hover:text-[#1A1A1A] disabled:opacity-30 disabled:cursor-not-allowed transition-colors group"
+            aria-label={"Previous: " + prevHallmark?.name}
+            className="flex items-center gap-2 min-h-11 text-sm"
           >
-            <ChevronLeft size={16} className="group-hover:-translate-x-0.5 transition-transform" />
-            {prevHallmark ? (
-              <span>
-                <span className="font-mono text-[#9CA3AF] mr-1">{prevHallmark.number}</span>
-                {prevHallmark.name}
-              </span>
-            ) : (
-              <span>First hallmark</span>
-            )}
+            <ChevronLeft size={18} />
+            <span>{prevHallmark?.name}</span>
           </button>
-
           <button
-            onClick={() => onNavigate('next')}
+            onClick={() => onNavigate("next")}
             disabled={!nextHallmark}
-            aria-label={nextHallmark ? `Next: ${nextHallmark.name}` : 'No next hallmark'}
-            className="flex items-center gap-2 text-sm text-[#6B7280] hover:text-[#1A1A1A] disabled:opacity-30 disabled:cursor-not-allowed transition-colors group"
+            aria-label={"Next: " + nextHallmark?.name}
+            className="flex items-center gap-2 min-h-11 text-sm text-right"
           >
-            {nextHallmark ? (
-              <span>
-                <span className="font-mono text-[#9CA3AF] mr-1">{nextHallmark.number}</span>
-                {nextHallmark.name}
-              </span>
-            ) : (
-              <span>Last hallmark</span>
-            )}
-            <ChevronRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+            <span>{nextHallmark?.name}</span>
+            <ChevronRight size={18} />
           </button>
-        </div>
-      </motion.aside>
-    </>
-  )
+        </footer>
+      </div>
+    </dialog>
+  );
 }

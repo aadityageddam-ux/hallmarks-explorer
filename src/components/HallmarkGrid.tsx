@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { AnimatePresence, motion } from 'framer-motion'
-import type { Hallmark, HallmarkTier } from '@/types/hallmark'
-import { tiers } from '@/lib/hallmarks'
-import { HallmarkCard } from './HallmarkCard'
-import { HallmarkPanel } from './HallmarkPanel'
-import { TierSection } from './TierSection'
-import { getAdjacentHallmarks } from '@/lib/hallmarks'
+import { AnimatePresence, motion } from "framer-motion";
+import type { Hallmark, HallmarkTier } from "@/types/hallmark";
+import { tiers } from "@/lib/hallmarks";
+import { HallmarkCard } from "./HallmarkCard";
+import { HallmarkPanel } from "./HallmarkPanel";
+import { TierSection } from "./TierSection";
+import { getAdjacentHallmarks } from "@/lib/hallmarks";
 
-const TIER_ORDER: HallmarkTier[] = ['primary', 'antagonistic', 'integrative']
+const TIER_ORDER: HallmarkTier[] = ["primary", "antagonistic", "integrative"];
 
 interface HallmarkGridProps {
-  hallmarks: Hallmark[]
-  selectedHallmark: Hallmark | null
-  onSelect: (h: Hallmark | null) => void
+  hallmarks: Hallmark[];
+  selectedHallmark: Hallmark | null;
+  onSelect: (h: Hallmark | null) => void;
 }
 
 export function HallmarkGrid({
@@ -23,7 +23,7 @@ export function HallmarkGrid({
 }: HallmarkGridProps) {
   const { prev, next } = selectedHallmark
     ? getAdjacentHallmarks(selectedHallmark.id, hallmarks)
-    : { prev: null, next: null }
+    : { prev: null, next: null };
 
   return (
     <>
@@ -31,15 +31,15 @@ export function HallmarkGrid({
       <div
         className={
           selectedHallmark
-            ? 'opacity-40 pointer-events-none transition-opacity duration-200 select-none'
-            : 'transition-opacity duration-200'
+            ? "opacity-40 pointer-events-none transition-opacity duration-200 select-none"
+            : "transition-opacity duration-200"
         }
       >
         <div className="space-y-12">
-          {TIER_ORDER.map(tier => {
-            const tierHallmarks = hallmarks.filter(h => h.tier === tier)
-            if (tierHallmarks.length === 0) return null
-            const meta = tiers[tier]
+          {TIER_ORDER.map((tier) => {
+            const tierHallmarks = hallmarks.filter((h) => h.tier === tier);
+            if (tierHallmarks.length === 0) return null;
+            const meta = tiers[tier];
 
             return (
               <TierSection
@@ -50,7 +50,7 @@ export function HallmarkGrid({
                 lightColor={meta.lightColor}
               >
                 <AnimatePresence mode="popLayout">
-                  {tierHallmarks.map(h => (
+                  {tierHallmarks.map((h) => (
                     <motion.div
                       key={h.id}
                       layout
@@ -69,13 +69,17 @@ export function HallmarkGrid({
                   ))}
                 </AnimatePresence>
               </TierSection>
-            )
+            );
           })}
 
           {hallmarks.length === 0 && (
             <div className="py-20 text-center text-[#9CA3AF]">
-              <p className="text-lg font-medium">No hallmarks match your filters</p>
-              <p className="text-sm mt-1">Try adjusting or clearing your search</p>
+              <p className="text-lg font-medium">
+                No hallmarks match your filters
+              </p>
+              <p className="text-sm mt-1">
+                Try adjusting or clearing your search
+              </p>
             </div>
           )}
         </div>
@@ -87,12 +91,12 @@ export function HallmarkGrid({
           <HallmarkPanel
             hallmark={selectedHallmark}
             onClose={() => onSelect(null)}
-            onNavigate={dir => onSelect(dir === 'prev' ? prev : next)}
+            onNavigate={(dir) => onSelect(dir === "prev" ? prev : next)}
             prevHallmark={prev}
             nextHallmark={next}
           />
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

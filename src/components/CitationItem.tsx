@@ -1,15 +1,15 @@
-import { ExternalLink } from 'lucide-react'
-import type { Citation } from '@/types/hallmark'
-import { cn } from '@/lib/utils'
+import { ExternalLink } from "lucide-react";
+import type { Citation } from "@/types/hallmark";
+import { cn } from "@/lib/utils";
 
 interface CitationItemProps {
-  citation: Citation
-  className?: string
+  citation: Citation;
+  className?: string;
 }
 
 export function CitationItem({ citation, className }: CitationItemProps) {
   return (
-    <div className={cn('text-sm', className)}>
+    <div className={cn("text-sm", className)}>
       <a
         href={citation.pubmedUrl}
         target="_blank"
@@ -21,19 +21,18 @@ export function CitationItem({ citation, className }: CitationItemProps) {
         </span>
         <ExternalLink
           size={12}
-          className="shrink-0 mt-0.5 text-[#9CA3AF] group-hover:text-[#6B7280]"
+          className="shrink-0 mt-0.5 text-[#596170] group-hover:text-[#6B7280]"
         />
       </a>
       <p className="mt-0.5 text-[#6B7280]">
-        {citation.authors} ·{' '}
-        <span className="italic">{citation.journal}</span>{' '}
+        {citation.authors} · <span className="italic">{citation.journal}</span>{" "}
         {citation.year}
         {citation.volume && `, ${citation.volume}`}
         {citation.pages && `:${citation.pages}`}
       </p>
-      <p className="mt-0.5 text-[#9CA3AF] font-mono text-xs">
+      <p className="mt-0.5 text-[#596170] font-mono text-xs">
         PMID: {citation.pmid}
       </p>
     </div>
-  )
+  );
 }
