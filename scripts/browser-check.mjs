@@ -159,7 +159,7 @@ try {
         .getByRole("button", { name: "Close panel", exact: true })
         .click();
     }
-    await page.waitForFunction(() => Array.from(document.querySelectorAll('div.transition-opacity')).every(el => getComputedStyle(el).opacity === '1'));
+    await page.waitForFunction(() => Array.from(document.querySelectorAll('div.transition-opacity.duration-200')).every(el => getComputedStyle(el).opacity === '1'));
     await page.screenshot({
       path: `test-results/page-${viewport.width}.png`,
       fullPage: true,
