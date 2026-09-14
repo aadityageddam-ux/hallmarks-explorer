@@ -2,6 +2,8 @@
 
 An educational guide to the twelve hallmarks in the 2023 aging framework, with cited research examples and explicit limits on what each study establishes.
 
+**[Open HallmarksExplorer](https://hallmarksexplorers.vercel.app/)**
+
 This is a literature-based reference interface, not original experimental research, a systematic review, a biological-age calculator or a treatment guide.
 
 ## What changed
@@ -53,6 +55,6 @@ Publication metadata and abstracts were checked in September 2026. The examples 
 
 ## Maintenance and publication
 
-Update the data and scientific audit together. Preserve paper attribution and check the precise claim supported by each source. The repository remains private during cleanup; publication is a separate owner decision. An existing Vercel deployment may serve an earlier revision until updated.
+Update the data and scientific audit together. Preserve paper attribution and check the precise claim supported by each source. The cleaned educational guide is published at the canonical link above. Check GitHub verification results and the Vercel production deployment after subsequent updates; publication does not constitute independent scientific review.
 
 Maintainer: Aaditya Geddam. The interface and this cleanup used AI assistance; source review scope and verification limits are documented above. No open-source license is asserted until the owner selects one.
