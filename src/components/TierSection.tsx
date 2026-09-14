@@ -1,11 +1,11 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react";
 
 interface TierSectionProps {
-  label: string
-  description: string
-  color: string
-  lightColor: string
-  children: ReactNode
+  label: string;
+  description: string;
+  color: string;
+  lightColor: string;
+  children: ReactNode;
 }
 
 export function TierSection({
@@ -38,5 +38,5 @@ export function TierSection({
         {children}
       </div>
     </section>
-  )
+  );
 }

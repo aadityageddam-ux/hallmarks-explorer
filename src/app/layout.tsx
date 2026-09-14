@@ -23,11 +23,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'HallmarksExplorer — The 12 Hallmarks of Aging',
   description:
-    'Interactive reference for the 12 Hallmarks of Aging. Browse the biological processes that drive aging, with associated biomarkers, interventions, and PubMed citations. Based on López-Otín et al., Cell, 2023.',
+    'Explore the 2023 hallmarks of aging framework with cited research examples, study populations, measurement limits, and open questions.',
   openGraph: {
     title: 'HallmarksExplorer — The 12 Hallmarks of Aging',
     description:
-      'Browse all 12 hallmarks of aging with biomarkers, interventions, and primary literature.',
+      'Explore aging biology with claim-level citations and clearly bounded research evidence.',
     type: 'website',
   },
 }
